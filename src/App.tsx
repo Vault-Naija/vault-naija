@@ -4,8 +4,6 @@ import SvgLogo from './assets/logo.svg'
 import { useState } from 'react'
 
 const App = () => {
-  const emeka = 0
-  console.log('emeka nwodo', emeka)
   const [count, setCount] = useState(0)
   return (
     <div>
