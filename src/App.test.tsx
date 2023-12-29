@@ -10,5 +10,7 @@ describe('App', () => {
     expect(titleElement).toBeInTheDocument()
     const logoElement = screen.getByAltText('logo')
     expect(logoElement).toBeInTheDocument()
+    const svgLogo = screen.getByAltText('logosvg')
+    expect(svgLogo).toBeInTheDocument()
   })
 })
