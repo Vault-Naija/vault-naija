@@ -1,17 +1,21 @@
 import './style.css'
-import Logo from './assets/logo.png'
-import SvgLogo from './assets/logo.svg'
-import Counter from './commons/Counter/Counter'
+import Logo from '@assets/logo.png'
+import SvgLogo from '@assets/logo.svg'
+import ProductsList from '@scopes/products/presentation/pages/productsList'
+import Counter from '@commons/Counter/Counter'
+import AppProviders from './providers/AppProviders'
 
 const App = () => {
   return (
-    <div>
-      <h1>Hello world!!nkjfd</h1>
-      <img src={Logo} height="200" width="200" alt="logo" />
-      <img src={SvgLogo} height="200" width="200" alt="logosvg" />
-      <Counter />
-    </div>
+    <AppProviders>
+      <div>
+        <h1>Hello world!!nkjfd</h1>
+        <img src={Logo} height="200" width="200" alt="logo" />
+        <img src={SvgLogo} height="200" width="200" alt="logosvg" />
+        <Counter />
+        <ProductsList />
+      </div>
+    </AppProviders>
   )
 }
-
 export default App
