@@ -27,7 +27,7 @@ type VariantType = { [K in VariantKeys]: string }
 const Button: React.FC<IButton> = ({
   isDisabled,
   backgroundColor,
-  size,
+  size = 'medium',
   label,
   color = 'white',
   variant = 'primary',
