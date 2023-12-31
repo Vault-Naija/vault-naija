@@ -6,6 +6,7 @@ const aliasesToPathsMap = {
   '@counter': 'commons/Counter', // Remove after test
   '@assets': 'assets',
   '@providers': 'providers',
+  '@kudos': 'kudos',
 }
 const getPathAliases = (pathMaps, configName, rootPath = 'src') => {
   const aliases = {}
@@ -23,6 +24,7 @@ const getPathAliases = (pathMaps, configName, rootPath = 'src') => {
   })
   return aliases
 }
+
 module.exports = {
   webpackAliases: getPathAliases(aliasesToPathsMap, 'webpack'),
   jestAliases: getPathAliases(aliasesToPathsMap, 'jest'),
