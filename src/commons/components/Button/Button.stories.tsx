@@ -31,7 +31,6 @@ export const Primary = {
   args: {
     label: 'Primary',
     size: 'large',
-    // variant: 'danger',
   },
 }
 
@@ -39,7 +38,6 @@ export const Secondary = {
   args: {
     label: 'Secondary',
     size: 'large',
-    // variant: 'danger',
   },
 }
 
@@ -47,6 +45,5 @@ export const Tertiary = {
   args: {
     label: 'Tertiary Button',
     size: 'large',
-    // variant: 'danger',
   },
 }
