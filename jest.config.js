@@ -1,3 +1,5 @@
+const { jestAliases } = require('./aliases.config')
+
 module.exports = {
   setupFilesAfterEnv: ['<rootDir>/setUpTests.js'],
   testEnvironment: 'jsdom', // provides browser-like environment
@@ -8,5 +10,6 @@ module.exports = {
   moduleNameMapper: {
     '\\.(css|scss)$': 'identity-obj-proxy',
     '\\.(jpg|jpeg|png|gif|svg)$': '<rootDir>/fileMock.js',
+    ...jestAliases,
   },
 }
