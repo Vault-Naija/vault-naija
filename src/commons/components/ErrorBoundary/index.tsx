@@ -8,10 +8,7 @@ interface FallbackComponentProps {
 interface ErrorBoundaryProps {
   children: ReactNode
 }
-const FallbackComponent = ({
-  error,
-  resetErrorBoundary,
-}: FallbackComponentProps) => {
+const FallbackComponent = ({ resetErrorBoundary }: FallbackComponentProps) => {
   return (
     <div
       role="alert"
@@ -30,7 +27,7 @@ const FallbackComponent = ({
       <p style={{ margin: 0 }}>
         You may either refresh the page or return to home and try again
       </p>
-      <pre>{error.message}</pre>
+
       <button
         style={{
           background: '#008080',
@@ -39,6 +36,7 @@ const FallbackComponent = ({
           fontSize: '.8rem',
           padding: '.5rem 1rem',
           borderRadius: '.2rem',
+          marginTop: '1rem',
         }}
         onClick={resetErrorBoundary}
       >
