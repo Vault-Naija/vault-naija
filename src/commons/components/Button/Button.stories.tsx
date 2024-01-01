@@ -1,4 +1,4 @@
-import Button from '.'
+import { Button } from '@chakra-ui/react'
 
 export default {
   name: 'Button',
@@ -9,8 +9,8 @@ export default {
     color: 'red',
   },
   argTypes: {
-    backgroundColor: {
-      control: 'color',
+    colorScheme: {
+      control: 'text',
       description: 'Specifies the background color of our button',
     },
     color: {
@@ -20,30 +20,28 @@ export default {
         summary: 'green',
       },
     },
-
-    label: {
-      control: 'text',
-    },
   },
 }
 
 export const Primary = {
   args: {
-    label: 'Primary',
-    size: 'large',
+    children: 'Primary',
+    size: 'sm',
   },
 }
 
 export const Secondary = {
   args: {
-    label: 'Secondary',
-    size: 'large',
+    children: 'Secondary',
+    size: 'md',
+    variant: 'solid',
+    colorScheme: 'teal',
   },
 }
 
 export const Tertiary = {
   args: {
-    label: 'Tertiary Button',
-    size: 'large',
+    children: 'Tertiary Button',
+    size: 'lg',
   },
 }

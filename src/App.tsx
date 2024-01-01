@@ -1,4 +1,5 @@
 import './style.css'
+
 import Logo from '@assets/logo.png'
 import SvgLogo from '@assets/logo.svg'
 import ProductsList from '@scopes/products/presentation/pages/productsList'
