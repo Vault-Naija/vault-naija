@@ -1,7 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-
+const { webpackAliases } = require('../aliases.config')
 module.exports = {
   entry: './src/index.tsx',
   output: {
@@ -10,6 +10,9 @@ module.exports = {
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
+    alias: {
+      ...webpackAliases,
+    },
   },
   module: {
     rules: [
@@ -45,7 +48,8 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: 'src/assets/*',
+          context: 'src/assets/',
+          from: '*',
           to: path.resolve(__dirname, '..', `./build/templates`),
         },
       ],
