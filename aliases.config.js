@@ -6,7 +6,7 @@ const aliasesToPathsMap = {
   '@counter': 'commons/Counter', // Remove after test
   '@assets': 'assets',
   '@providers': 'providers',
-  '@kudos': 'kudos',
+  '@utils': 'utils',
 }
 const getPathAliases = (pathMaps, configName, rootPath = 'src') => {
   const aliases = {}
