@@ -8,7 +8,7 @@ describe('Button', () => {
     expect(buttonElement).toBeInTheDocument()
     expect(buttonElement).toHaveTextContent('Login')
     expect(buttonElement).toHaveStyle({
-      color: 'white',
+      color: 'yellow',
       backgroundColor: 'blue',
       fontSize: '4px',
       padding: '10px',
