@@ -5,7 +5,7 @@ describe('App', () => {
   it('should render the app component', () => {
     render(<App />)
     const titleElement = screen.getByRole('heading', {
-      name: 'Hello world!!nkjfd',
+      name: 'Hello world!!nkjfd!',
     })
     expect(titleElement).toBeInTheDocument()
     const logoElement = screen.getByAltText('logo')
