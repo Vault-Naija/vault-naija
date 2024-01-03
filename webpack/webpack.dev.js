@@ -6,6 +6,7 @@ module.exports = {
     hot: true,
     open: true,
     port: 3000,
+    historyApiFallback: true,
   },
   devtool: 'eval',
   plugins: [new ReactRefreshWebpackPlugin()],
