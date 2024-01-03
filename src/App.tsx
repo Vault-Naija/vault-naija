@@ -16,7 +16,7 @@ const App = () => {
   return (
     <AppProviders>
       <div>
-        <h1>Hello world!!nkjfd</h1>
+        <h1>Hello world!!nkjfd!</h1>
         <img src={Logo} height="200" width="200" alt="logo" />
         <img src={SvgLogo} height="200" width="200" alt="logosvg" />
         <Counter />
