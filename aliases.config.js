@@ -7,6 +7,9 @@ const aliasesToPathsMap = {
   '@assets': 'assets',
   '@providers': 'providers',
   '@utils': 'utils',
+  '@routes': 'routes',
+  '@hoc': 'hoc',
+  '@hooks': 'hooks',
 }
 const getPathAliases = (pathMaps, configName, rootPath = 'src') => {
   const aliases = {}
