@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
+import { withProtection } from '@hoc/withProtection'
 
-const Counter = () => {
+const Counter: React.FC = () => {
   const [count, setCount] = useState<number>(0)
 
   return (
@@ -11,4 +12,4 @@ const Counter = () => {
   )
 }
 
-export default Counter
+export default withProtection(Counter)
