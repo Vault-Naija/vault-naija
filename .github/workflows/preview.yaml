@@ -8,9 +8,9 @@ on:
       - main
       - develop
 jobs:
-  Build:
+  Pre-builds:
     runs-on: ubuntu-latest
-    steps:
+    steps: 
       - uses: actions/checkout@v2
       - name: Install dependencies
         run: npm install
@@ -20,6 +20,10 @@ jobs:
         run: npm run lint
       - name: Run format
         run: npm run format
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
       - name: Pull Vercel Environment Information
