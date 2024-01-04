@@ -5,35 +5,58 @@ env:
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
 on:
-  push:
-    branches-ignore:
-      - main
-      - develop
+  pull_request:
+    branches:
+      - '*'
 
 jobs:
-  Pre-builds:
+  Check-Workflow-Status:
     runs-on: ubuntu-latest
-    steps: 
+    outputs:
+      id: check_status
+      value: ${{ steps.comment.outputs.status }}
+    steps:
+      - name: Check Workflow Status
+        id: comment
+        run: |
+          status=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+                   -H "Accept: application/vnd.github.v3+json" \
+                   https://api.github.com/repos/${{ github.repository }}/actions/runs?event=workflow_dispatch \
+                   | jq -r '.workflow_runs[0].status')
+
+          preview_url=$(curl -s -H "Authorization: Bearer ${{ secrets.VERCEL_TOKEN }}" \
+                        -H "Content-Type: application/json" \
+                        -X POST -d '{"orgId": "'${VERCEL_ORG_ID}'", "projectId": "'${VERCEL_PROJECT_ID}'", "branch": "'${{ github.head_ref }}'", "deployHook": false}' \
+                        https://api.vercel.com/v12/now/deployments | jq -r '.[0].url')
+
+          echo "::set-output name=status::${status}"
+          echo "::set-output name=preview_url::${preview_url}"
+
+  Pre-builds:
+    needs: Check-Workflow-Status
+    runs-on: ubuntu-latest
+    steps:
       - uses: actions/checkout@v2
-      - name: Install dependencies
-        run: npm install
-      - name: Run tests
-        run: npm run test
-      - name: Run lint
-        run: npm run lint
-      - name: Run format
-        run: npm run format
+      # ... rest of your pre-build steps ...
 
   Build:
     needs: Pre-builds
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Install Vercel CLI
-        run: npm install --global vercel@latest
-      - name: Pull Vercel Environment Information
-        run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
-      - name: Build Project Artifacts
-        run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
-      - name: Deploy Project Artifacts to Vercel
-        run: vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
+      # ... rest of your build steps ...
+
+  Comment-PR:
+    needs: [Pre-builds, Build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Comment on PR with Deployment Status
+        if: ${{ needs.Check-Workflow-Status.outputs.status == 'completed' }}
+        run: |
+          echo "Vercel Deployment Status: ${{ needs.Check-Workflow-Status.outputs.status }}"
+          echo "Preview URL: ${{ needs.Check-Workflow-Status.outputs.preview_url }}"
+          echo "Deployment Details: [Vercel Deployment](${{ needs.Check-Workflow-Status.outputs.preview_url }})"
+          |
+          gh pr comment ${{ github.event.number }} -b -
+
+
