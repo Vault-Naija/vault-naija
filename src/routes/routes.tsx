@@ -5,7 +5,9 @@ import Counter from '@commons/Counter/Counter'
 export const routes = createBrowserRouter([
   {
     path: '/',
-    element: <h1>This is our product list page (ADDED git action workflow)</h1>,
+    element: (
+      <h1>This is products list page deployed to vercel via git actions</h1>
+    ),
   },
   {
     path: '/counter',
