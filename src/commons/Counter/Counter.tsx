@@ -1,8 +1,12 @@
-import React, { useState, FC } from 'react'
+import { useState, FC } from 'react'
 import { withProtection } from '@hoc/withProtection'
 
-const Counter: FC = () => {
-  const [count, setCount] = useState<number>(0)
+export interface CounterProps {
+  defaultValue: number
+}
+
+const Counter: FC<CounterProps> = ({ defaultValue = 0 }) => {
+  const [count, setCount] = useState<number>(defaultValue)
 
   return (
     <div>
@@ -12,4 +16,4 @@ const Counter: FC = () => {
   )
 }
 
-export default withProtection(Counter)
+export default withProtection<CounterProps>(Counter)

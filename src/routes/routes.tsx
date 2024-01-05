@@ -11,6 +11,6 @@ export const routes = createBrowserRouter([
   },
   {
     path: '/counter',
-    element: <Counter />,
+    element: <Counter defaultValue={9} />,
   },
 ])

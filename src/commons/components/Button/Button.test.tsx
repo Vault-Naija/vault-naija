@@ -1,4 +1,4 @@
-import { customRender, screen } from '../../../test-utils'
+import { customRender, screen } from '../../../utils/test-utils'
 import Button from '.'
 
 describe('Button', () => {
