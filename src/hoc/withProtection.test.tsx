@@ -5,14 +5,13 @@ import { useUser } from '../hooks/useUser'
 import { MemoryRouter, useNavigate } from 'react-router-dom'
 
 jest.mock('../hooks/useUser')
-
-const mockUseUser = useUser as jest.MockedFunction<typeof useUser>
-const mockUseNavigate = useNavigate as jest.MockedFunction<typeof useNavigate>
-const mockNavigate = jest.fn()
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
   useNavigate: jest.fn(),
 }))
+const mockNavigate = jest.fn()
+const mockUseUser = useUser as jest.MockedFunction<typeof useUser>
+const mockUseNavigate = useNavigate as jest.MockedFunction<typeof useNavigate>
 
 describe('withProtection', () => {
   test('should render the component if the user is logged in', async () => {
