@@ -1,9 +1,13 @@
-import React, { FC, ReactElement, useEffect } from 'react'
+import { FC, ReactElement, useEffect } from 'react'
 import { useUser } from '@hooks/useUser'
 import { useNavigate } from 'react-router-dom'
 
-export const withProtection = (Component: FC<any>) => {
-  const ProtectedComponent = (props: any): ReactElement => {
+interface WithProtectionProps {}
+
+export const withProtection = <T extends WithProtectionProps>(
+  Component: FC<T>
+) => {
+  const ProtectedComponent = (props: T): ReactElement => {
     const { isLoggedIn } = useUser()
     const navigate = useNavigate()
 

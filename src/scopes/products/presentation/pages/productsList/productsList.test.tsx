@@ -1,5 +1,5 @@
 import ProductsList from '.'
-import { customRender, screen } from '../../../../../test-utils'
+import { customRender, screen } from '../../../../../utils/test-utils'
 import user from '@testing-library/user-event'
 
 describe('Products List', () => {
