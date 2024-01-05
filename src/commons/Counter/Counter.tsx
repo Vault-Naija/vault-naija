@@ -1,5 +1,5 @@
 import { useState, FC } from 'react'
-import { withProtection } from '@hoc/withProtection'
+import { withProtection } from '@commons/hoc/withProtectedComponents/withProtection'
 
 export interface CounterProps {
   defaultValue: number

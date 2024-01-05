@@ -1,10 +1,10 @@
-import { customRender } from '../utils/test-utils'
+import { customRender } from '../../../utils/test-utils'
 import UnprotectedComponent from './UnprotectedComponent.mock'
 import { withProtection } from './withProtection'
-import { useUser } from '../hooks/useUser'
+import { useUser } from '../../../hooks/useUser'
 import { MemoryRouter, useNavigate } from 'react-router-dom'
 
-jest.mock('../hooks/useUser')
+jest.mock('../../../hooks/useUser')
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
   useNavigate: jest.fn(),
