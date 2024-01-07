@@ -1,4 +1,4 @@
-import { customRender, screen } from '../../../utils/test-utils'
+import { customRender, screen } from '../../../../utils/test-utils'
 import ProblematicComponent from './ProblematicComponent.mock'
 
 describe('Error boundary', () => {

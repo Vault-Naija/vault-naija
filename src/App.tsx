@@ -1,5 +1,4 @@
 import { useEffect } from 'react'
-import './style.css'
 import { RouterProvider } from 'react-router-dom'
 import AppProviders from '@providers/AppProviders'
 

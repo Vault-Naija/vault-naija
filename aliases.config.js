@@ -10,6 +10,7 @@ const aliasesToPathsMap = {
   '@routes': 'routes',
   '@hoc': 'hoc',
   '@hooks': 'hooks',
+  '@styles': 'styles',
 }
 const getPathAliases = (pathMaps, configName, rootPath = 'src') => {
   const aliases = {}

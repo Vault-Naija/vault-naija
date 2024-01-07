@@ -7,6 +7,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, '..', 'build'),
     filename: 'bundle.js',
+    publicPath: '/',
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
@@ -50,7 +51,12 @@ module.exports = {
         {
           context: 'src/assets/',
           from: '*',
-          to: path.resolve(__dirname, '..', `./build/templates`),
+          to: path.resolve(__dirname, '..', `./build/assets`),
+        },
+        {
+          context: 'public/fonts/',
+          from: '**/*',
+          to: path.resolve(__dirname, '..', './build/fonts'),
         },
       ],
     }),

@@ -1,7 +1,7 @@
 import { customRender } from '../../../utils/test-utils'
 import UnprotectedComponent from './UnprotectedComponent.mock'
 import { withProtection } from './withProtection'
-import { useUser } from '../../../hooks/useUser'
+import { useUser } from '../../../hooks/useUser/useUser'
 import { MemoryRouter, useNavigate } from 'react-router-dom'
 
 jest.mock('../../../hooks/useUser')

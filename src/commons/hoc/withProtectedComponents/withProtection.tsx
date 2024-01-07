@@ -1,5 +1,5 @@
 import { FC, ReactElement, useEffect } from 'react'
-import { useUser } from '@hooks/useUser'
+import { useUser } from '@hooks/useUser/useUser'
 import { useNavigate } from 'react-router-dom'
 
 interface WithProtectionProps {}
