@@ -25,13 +25,19 @@ describe('Button', () => {
     test('Button behavior style for small ', () => {
       customRender(<Button label="Logout" size="small" />)
       const buttonElement = screen.getByRole('button')
-      expect(buttonElement).toHaveStyle({ fontSize: '2px', padding: '5px' })
+      expect(buttonElement).toHaveStyle({
+        fontSize: '1.3rem',
+        padding: '10px 10px 10px 10px',
+      })
     })
 
     test('Button behavior style for large ', () => {
       customRender(<Button label="Logout" size="large" />)
       const buttonElement = screen.getByRole('button')
-      expect(buttonElement).toHaveStyle({ fontSize: '8px', padding: '16px' })
+      expect(buttonElement).toHaveStyle({
+        fontSize: '1.8rem',
+        padding: '20px 20px 20px 20px',
+      })
     })
   })
 
