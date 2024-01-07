@@ -10,8 +10,8 @@ describe('Button', () => {
     expect(buttonElement).toHaveStyle({
       color: 'white',
       backgroundColor: 'blue',
-      fontSize: '4px',
-      padding: '10px',
+      fontSize: '1.6rem',
+      padding: '16px 16px 16px 16px',
     })
   })
 
