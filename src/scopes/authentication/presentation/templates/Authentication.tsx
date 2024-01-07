@@ -1,10 +1,14 @@
+import React, { ReactNode } from 'react'
 import { Box } from '@commons/styledComponents/basics'
-import { Outlet } from 'react-router-dom'
+
 import { Header } from '../organisms/Header/Header'
 import { Footer } from '../organisms/Footer/Footer'
-import loginCover from '@assets/images/login-cover.png'
 
-const Authentication = () => {
+interface AuthProps {
+  coverImage: string
+  children: ReactNode
+}
+const Authentication = ({ coverImage, children }: AuthProps) => {
   return (
     <Box
       display="flex"
@@ -15,7 +19,7 @@ const Authentication = () => {
       <Header />
       <Box display="grid" gridTemplateColumns="1fr 0.8fr" height="100%">
         <Box
-          bgImage={`url(${loginCover})`}
+          bgImage={`url(${coverImage})`}
           height="auto"
           width="100%"
           objectFit="cover"
@@ -24,8 +28,15 @@ const Authentication = () => {
         >
           <image />
         </Box>
-        <Box id="detail" background="gray">
-          <Outlet />
+        <Box
+          id="detail"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          flexDirection="column"
+          gap="2rem"
+        >
+          {children}
         </Box>
       </Box>
 

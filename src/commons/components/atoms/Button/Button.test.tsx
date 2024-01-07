@@ -3,7 +3,7 @@ import Button from '.'
 
 describe('Button', () => {
   test('Button element renders with default value', () => {
-    customRender(<Button label="Login" size="medium" />)
+    customRender(<Button label="Login" size="normal" />)
     const buttonElement = screen.getByRole('button')
     expect(buttonElement).toBeInTheDocument()
     expect(buttonElement).toHaveTextContent('Login')
@@ -17,7 +17,7 @@ describe('Button', () => {
 
   describe('Button Sizes', () => {
     test('Button element is disabled', () => {
-      customRender(<Button label="Login" size="medium" isDisabled />)
+      customRender(<Button label="Login" size="normal" isDisabled />)
       const buttonElement = screen.getByRole('button')
       expect(buttonElement).toBeDisabled()
     })

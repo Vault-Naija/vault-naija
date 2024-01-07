@@ -53,15 +53,19 @@ const SelectInput = ({ items, values, onSelect }: SelectInputProps) => {
           setIsOpen((isOpen) => !isOpen)
         }}
       >
-        <Text.Span fontSize="1.6rem" color={theme.colors.dark}>
-          {selectedItems[0]?.label ?? 'Select'}
-        </Text.Span>
+        <Box display="flex" alignItems="center">
+          {selectedItems[0]?.icon && <Box>{selectedItems[0]?.icon}</Box>}
+
+          <Text.Span fontSize="1.6rem" color={theme.colors.dark}>
+            {selectedItems[0]?.label ?? 'Select'}
+          </Text.Span>
+        </Box>
         <Images.icons.ArrowDown />
       </Box>
 
       <List
         position="absolute"
-        bottom="-7.8rem"
+        bottom="-10rem"
         right="0"
         left="0"
         background={theme.colors.white}
@@ -86,7 +90,10 @@ const SelectInput = ({ items, values, onSelect }: SelectInputProps) => {
                 ? theme.colors.primary
                 : theme.colors.dark
             }
+            display="flex"
+            alignItems="center"
           >
+            <Box>{item.icon}</Box>
             {item.label}
           </ListItem>
         ))}

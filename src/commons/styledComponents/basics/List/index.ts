@@ -13,6 +13,7 @@ export const ListItem = styled.li<CommonPropsInterface>`
 `
 
 export const RouterLink = styled(Link)`
+  ${commonCSS}
   text-decoration: none;
-  color: ${theme.colors.gray500};
+  color: ${({ color }) => color || theme.colors.gray500};
 `

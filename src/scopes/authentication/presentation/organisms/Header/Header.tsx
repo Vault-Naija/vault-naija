@@ -1,8 +1,9 @@
 import { Images } from '@assets'
 import { SearchInput } from '@commons/components/molecules/SearchInput/SearchInput'
 import SelectInput from '@commons/components/molecules/SelectInput/SelectInput'
-import { Box, Text } from '@commons/styledComponents/basics'
+import { Box, Text, Image } from '@commons/styledComponents/basics'
 import { theme } from '@styles/theme'
+import usaIcon from '@assets/images/united-state-flag.png'
 
 export const Header = () => {
   return (
@@ -24,13 +25,39 @@ export const Header = () => {
         alignItems="center"
         justifyContent="space-between"
       >
-        <Box width="15rem">
+        <Box width="20rem">
           <SelectInput
             items={[
-              { label: 'English', value: 'english' },
-              { label: 'Spanish', value: 'spanish' },
+              {
+                label: 'English',
+                value: 'english',
+                icon: (
+                  <Image src={usaIcon} alt="usa flag" transform="scale(0.5)" />
+                ),
+              },
+              {
+                label: 'Spanish',
+                value: 'spanish',
+                icon: (
+                  <Image
+                    src={usaIcon}
+                    alt="usa flag"
+                    margin="0"
+                    padding="0"
+                    transform="scale(0.5)"
+                  />
+                ),
+              },
             ]}
-            values={[{ label: 'English', value: 'english' }]}
+            values={[
+              {
+                label: 'English',
+                value: 'english',
+                icon: (
+                  <Image src={usaIcon} alt="usa flag" transform="scale(0.5)" />
+                ),
+              },
+            ]}
             onSelect={() => {}}
           />
         </Box>

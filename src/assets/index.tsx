@@ -4,6 +4,9 @@ import { EyeIcon } from './eye-icon'
 import { ArrowDownIcon } from '@assets/svg-icons/arrow-down-icon'
 import { AlertIcon } from './svg-icons/alert-icon'
 import { UserProfileIcon } from './svg-icons/user-profile-icon'
+import { EyeCloseIcon } from './svg-icons/eye-close-icon'
+import { GoogleIcon } from './svg-icons/google-icon'
+import { FacebookIcon } from './svg-icons/facebook-icon'
 
 export const Images = {
   icons: {
@@ -13,5 +16,8 @@ export const Images = {
     ArrowDown: ArrowDownIcon,
     Alert: AlertIcon,
     UserProfile: UserProfileIcon,
+    EyeCloseIcon,
+    GoogleIcon,
+    FacebookIcon,
   },
 }

@@ -1,30 +1,12 @@
 import { Input } from '@commons/styledComponents/basics'
+import { CommonPropsInterface } from '@commons/styledComponents/basics/common'
 
-export interface InputProps {
-  onChange?: React.ChangeEventHandler<HTMLInputElement>
-  value?: string
-  placeholder?: string
-  border?: string
-  outline?: string
-  type?: string
-}
+export type InputProps = CommonPropsInterface &
+  React.DetailedHTMLProps<
+    React.InputHTMLAttributes<HTMLInputElement>,
+    HTMLInputElement
+  >
 
-export const TextInput = ({
-  onChange,
-  value,
-  placeholder,
-  type,
-  ...props
-}: InputProps) => {
-  return (
-    <Input
-      padding="1rem"
-      width="100%"
-      value={value}
-      type={type}
-      placeholder={placeholder}
-      onChange={onChange}
-      {...props}
-    />
-  )
+export const TextInput = ({ ...props }: InputProps) => {
+  return <Input padding="1rem" width="100%" {...props} />
 }

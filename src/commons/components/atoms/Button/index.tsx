@@ -20,7 +20,6 @@ interface IButton {
 interface ISizeStyle {
   fontSize: string
   padding: string
-  boarderRadius: string
   lineHeight?: string
 }
 
@@ -32,6 +31,7 @@ interface ButtonType {
   background?: string
   color?: string
   border?: string
+  opacity?: number
 }
 
 type ButtonTypes = {
@@ -52,21 +52,21 @@ const Button: React.FC<IButton> = ({
   const sizeMap: ISizeMap = {
     small: {
       fontSize: '1.3rem',
-      padding: '0px, 10px, 0px, 10px',
-      boarderRadius: '6px',
+      padding: '10px 10px 10px 10px',
+
       lineHeight: '1.57rem',
     },
 
     normal: {
       fontSize: '1.6rem',
-      padding: '0px, 16px, 0px, 16px',
-      boarderRadius: '6px',
+      padding: '16px 16px 16px 16px',
+
       lineHeight: '1.94rem',
     },
     large: {
       fontSize: '1.8rem',
-      padding: '0px, 20px, 0px, 20px',
-      boarderRadius: '6px',
+      padding: '20px 20px 20px 20px',
+
       lineHeight: '2.17rem',
     },
   }
@@ -81,23 +81,31 @@ const Button: React.FC<IButton> = ({
 
   const buttonTypes: ButtonTypes = {
     outline: {
-      background: 'none',
+      opacity: 0,
       color: `${theme.colors.primary}`,
       border: `1px solid ${theme.colors.gray300}`,
     },
     solid: {
-      background: 'none',
-      color: `${theme.colors.primary}`,
+      background: backgroundColor || variantMap[variant],
+      color: `${color || theme.colors.white}`,
       border: `1px solid ${theme.colors.gray300}`,
     },
   }
+
+  const mergedStyles = {
+    ...sizeMap[size],
+    ...buttonTypes[type],
+  }
   return (
     <StyledButton
+      cursor="pointer"
+      hoverOpacity="0.7"
       disabled={isDisabled}
+      transition="all 0.3s"
       background={backgroundColor || variantMap[variant]}
       color={color}
-      {...sizeMap[size]}
-      {...buttonTypes[type]}
+      {...mergedStyles}
+      borderRadius=".6rem"
     >
       {label}
     </StyledButton>

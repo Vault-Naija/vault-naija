@@ -1,9 +1,5 @@
 import { Box, Text } from '@commons/styledComponents/basics'
-import {
-  List,
-  ListItem,
-  RouterLink,
-} from '@commons/styledComponents/basics/List'
+import { FooterLinks } from '../../molecules/FooterLinks/FooterLinks'
 
 export const Footer = () => {
   return (
@@ -15,41 +11,28 @@ export const Footer = () => {
         justifyContent="space-between"
         alignItems="center"
       >
-        <Box display="flex" flexDirection="column" gap="0.5rem">
-          <Text.Span fontSize="2rem">SERVICE</Text.Span>
-          <List fontSize="1.5rem">
-            <ListItem padding="1rem 0">
-              <RouterLink to={'/'}>Products</RouterLink>
-            </ListItem>
-            <ListItem>
-              <RouterLink to={'/'}>Contact Us</RouterLink>
-            </ListItem>
-          </List>
-        </Box>
+        <FooterLinks
+          title="SERVICE"
+          items={[
+            { url: '/', label: 'Products' },
+            { url: '/', label: 'Contact Us' },
+          ]}
+        />
+        <FooterLinks
+          title="SUPPORT"
+          items={[
+            { url: '/', label: 'About fashionholic.com' },
+            { url: '/', label: 'Privacy policy & terms' },
+          ]}
+        />
 
-        <Box display="flex" flexDirection="column" gap="0.5rem">
-          <Text.Span fontSize="2rem">SUPPORT</Text.Span>
-          <List fontSize="1.5rem">
-            <ListItem padding="1rem 0">
-              <RouterLink to={'/'}>About fashionholic.com</RouterLink>
-            </ListItem>
-            <ListItem>
-              <RouterLink to={'/'}>Privacy policy & terms</RouterLink>
-            </ListItem>
-          </List>
-        </Box>
-
-        <Box display="flex" flexDirection="column" gap="0.5rem">
-          <Text.Span fontSize="2rem">FOLLOW US ON</Text.Span>
-          <List fontSize="1.5rem">
-            <ListItem padding="1rem 0">
-              <RouterLink to={'/'}>Instagram</RouterLink>
-            </ListItem>
-            <ListItem>
-              <RouterLink to={'/'}>Facebook</RouterLink>
-            </ListItem>
-          </List>
-        </Box>
+        <FooterLinks
+          title="SUPPORT"
+          items={[
+            { url: '/', label: 'FOLLOW US ON' },
+            { url: '/', label: 'Facebook' },
+          ]}
+        />
       </Box>
     </Box>
   )
