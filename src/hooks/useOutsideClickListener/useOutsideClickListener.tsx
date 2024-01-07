@@ -20,9 +20,8 @@ export const useOutsideClickListener = ({
         callBack()
       }
     }
-    if (isOpen) {
-      document.addEventListener('click', handleOutsideClick)
-    }
+
+    document.addEventListener('click', handleOutsideClick)
 
     // Remove event listener when the component unmounts or the dropdown is closed
     return () => {

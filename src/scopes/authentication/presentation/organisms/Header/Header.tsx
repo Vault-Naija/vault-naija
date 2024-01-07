@@ -11,7 +11,6 @@ export const Header = () => {
       justifyContent="space-between"
       padding="2.5rem 8rem"
       gridTemplateColumns="0.4fr 1fr 0.6fr"
-      background="yellow"
       gridColumnGap="10%"
     >
       <Text.H2 color={theme.colors.primary}>Naija Vault</Text.H2>

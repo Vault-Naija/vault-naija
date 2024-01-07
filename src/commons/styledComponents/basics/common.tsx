@@ -56,6 +56,7 @@ export interface CommonPropsInterface {
   zIndexOnHover?: string
   hoverOpacity?: string
   focusedBorderColor?: string
+  activeBorderColor?: string
   beforeContent?: string
   beforeHeight?: string
   beforeWidth?: string
@@ -154,7 +155,9 @@ export const commonCSS = css<CommonPropsInterface>`
   &:focus {
     border-color: ${({ focusedBorderColor }) => focusedBorderColor};
   }
-
+  &:active {
+    border-color: ${({ activeBorderColor }) => activeBorderColor};
+  }
   :before {
     content: ${({ beforeContent }) => beforeContent};
     height: ${({ beforeHeight }) => beforeHeight};
