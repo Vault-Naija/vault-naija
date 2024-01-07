@@ -49,8 +49,7 @@ const SelectInput = ({ items, values, onSelect }: SelectInputProps) => {
         alignItems="center"
         justifyContent="space-between"
         cursor="pointer"
-        onClick={(event) => {
-          console.log('event', event.target)
+        onClick={() => {
           setIsOpen((isOpen) => !isOpen)
         }}
       >
