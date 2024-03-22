@@ -1,16 +1,21 @@
 import { createBrowserRouter } from 'react-router-dom'
 // import ProductsList from '@scopes/products/presentation/pages/productsList'
-import Counter from '@commons/Counter/Counter'
+import Login from '@scopes/authentication/presentation/pages/Login'
+import Register from '@scopes/authentication/presentation/pages/Register'
+import Home from '@scopes/products/presentation/pages/Home'
 
 export const routes = createBrowserRouter([
   {
     path: '/',
-    element: (
-      <h1>This is products list page deployed to vercel via git actions</h1>
-    ),
+    element: <Home />,
   },
   {
-    path: '/counter',
-    element: <Counter defaultValue={9} />,
+    path: '/auth/login',
+    element: <Login />,
+  },
+
+  {
+    path: '/auth/register',
+    element: <Register />,
   },
 ])
