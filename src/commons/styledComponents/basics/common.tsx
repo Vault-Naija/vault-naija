@@ -2,6 +2,7 @@ import { css, RuleSet } from 'styled-components'
 
 export interface CommonPropsInterface {
   background?: string
+  gradientBg?: string
   bgImage?: string
   bgSize?: string
   bgRepeat?: string
@@ -19,7 +20,7 @@ export interface CommonPropsInterface {
   minWidth?: string
   height?: string
   borderRadius?: string
-  fontWeight?: string
+  fontWeight?: number
   textAlign?: string
   textTransform?: string
   justifyContent?: string
@@ -51,6 +52,7 @@ export interface CommonPropsInterface {
   transition?: string
   hoverBg?: string
   hoverColor?: string
+  letterSpacing?: string
   scaleOut?: string
   transformOnHover?: string
   zIndexOnHover?: string
@@ -71,6 +73,7 @@ export interface CommonPropsInterface {
   maxHeight?: string
   borderColor?: string
   fontSize?: string
+  placeContent?: string
   // onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   hoverPadding?: string
   widthM?: string
@@ -86,7 +89,8 @@ export interface BoxProps extends CommonPropsInterface {
 
 export const commonCSS = css<CommonPropsInterface>`
   background-color: ${({ background }) => background};
-  background-image: ${({ bgImage }) => bgImage};
+  background-image: ${({ gradientBg, bgImage }) =>
+    gradientBg ? `${gradientBg},${bgImage}` : `${bgImage}`};
   background-size: ${({ bgSize }) => bgSize};
   background-repeat: ${({ bgRepeat }) => bgRepeat};
   background-position: ${({ bgPosition }) => bgPosition};
@@ -103,6 +107,7 @@ export const commonCSS = css<CommonPropsInterface>`
   margin-top: ${({ marginTop }) => marginTop};
   margin-left: ${({ marginLeft }) => marginLeft};
   width: ${({ width }) => width};
+  letter-spacing: ${({ letterSpacing }) => letterSpacing || '0.5px'};
   min-width: ${({ minWidth }) => minWidth};
   height: ${({ height }) => height};
   border-radius: ${({ borderRadius }) => borderRadius};
@@ -112,6 +117,7 @@ export const commonCSS = css<CommonPropsInterface>`
   justify-content: ${({ justifyContent }) => justifyContent};
   align-items: ${({ alignItems }) => alignItems};
   display: ${({ display }) => display};
+  place-content: ${({ placeContent }) => placeContent};
   position: ${({ position }) => position};
   top: ${({ top }) => top};
   bottom: ${({ bottom }) => bottom};

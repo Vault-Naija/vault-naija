@@ -10,3 +10,13 @@ export const Input = styled.input<CommonPropsInterface>`
     font-style: italic;
   }
 `
+
+export const Textarea = styled.textarea<CommonPropsInterface>`
+  ${commonCSS}
+  ${({ customCss }) => customCss}
+  
+  ::placeholder {
+    color: red !important;
+    font-style: italic;
+  }
+`

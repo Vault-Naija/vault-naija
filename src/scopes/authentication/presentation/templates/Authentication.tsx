@@ -5,7 +5,7 @@ import { Header } from '../organisms/Header/Header'
 import { Footer } from '../organisms/Footer/Footer'
 
 interface AuthProps {
-  coverImage: string
+  coverImage?: string
   children: ReactNode
 }
 const Authentication = ({ coverImage, children }: AuthProps) => {

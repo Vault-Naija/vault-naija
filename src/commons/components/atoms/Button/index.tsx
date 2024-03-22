@@ -2,19 +2,31 @@ import React from 'react'
 import { string } from 'prop-types'
 import { Button as StyledButton } from '@commons/styledComponents/basics'
 import { theme } from '@styles/theme'
+import { CommonPropsInterface } from '@commons/styledComponents/basics/common'
+
+export type ButtonProps = CommonPropsInterface &
+  React.DetailedHTMLProps<
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
+  >
 
 type TSize = 'small' | 'normal' | 'large'
-type VariantKeys = 'primary' | 'secondary' | 'tertiary' | 'success' | 'danger'
-type ButtonTypeKeys = 'outline' | 'solid'
+type ColorSchemeKeys =
+  | 'primary'
+  | 'secondary'
+  | 'tertiary'
+  | 'success'
+  | 'danger'
+type ButtonVariantKeys = 'outline' | 'solid'
 
-interface IButton {
+type IButton = ButtonProps & {
   isDisabled?: boolean
   backgroundColor?: string
-  variant?: VariantKeys
+  colorScheme?: ColorSchemeKeys
   size: TSize
   label: string
   color?: string
-  type?: ButtonTypeKeys
+  variant?: ButtonVariantKeys
 }
 
 interface ISizeStyle {
@@ -27,18 +39,18 @@ interface ISizeMap {
   [key: string]: ISizeStyle
 }
 
-interface ButtonType {
+interface ButtonVariant {
   background?: string
   color?: string
   border?: string
   opacity?: number
 }
 
-type ButtonTypes = {
-  [K in ButtonTypeKeys]: ButtonType
+type ButtonVariants = {
+  [K in ButtonVariantKeys]: ButtonVariant
 }
 
-type VariantType = { [K in VariantKeys]: string }
+type ColorSchemeType = { [K in ColorSchemeKeys]: string }
 
 const Button: React.FC<IButton> = ({
   isDisabled,
@@ -46,8 +58,9 @@ const Button: React.FC<IButton> = ({
   size = 'medium',
   label,
   color = 'white',
-  variant = 'primary',
-  type = 'solid',
+  colorScheme = 'primary',
+  variant = 'solid',
+  ...props
 }) => {
   const sizeMap: ISizeMap = {
     small: {
@@ -71,7 +84,7 @@ const Button: React.FC<IButton> = ({
     },
   }
 
-  const variantMap: VariantType = {
+  const colorSchemeMap: ColorSchemeType = {
     primary: 'blue',
     secondary: 'pink',
     tertiary: 'gray',
@@ -79,14 +92,14 @@ const Button: React.FC<IButton> = ({
     danger: 'red',
   }
 
-  const buttonTypes: ButtonTypes = {
+  const buttonVariants: ButtonVariants = {
     outline: {
       opacity: 0,
       color: `${theme.colors.primary}`,
       border: `1px solid ${theme.colors.gray300}`,
     },
     solid: {
-      background: backgroundColor || variantMap[variant],
+      background: backgroundColor || colorSchemeMap[colorScheme],
       color: `${color || theme.colors.white}`,
       border: `1px solid ${theme.colors.gray300}`,
     },
@@ -94,7 +107,7 @@ const Button: React.FC<IButton> = ({
 
   const mergedStyles = {
     ...sizeMap[size],
-    ...buttonTypes[type],
+    ...buttonVariants[variant],
   }
   return (
     <StyledButton
@@ -102,10 +115,11 @@ const Button: React.FC<IButton> = ({
       hoverOpacity="0.7"
       disabled={isDisabled}
       transition="all 0.3s"
-      background={backgroundColor || variantMap[variant]}
+      background={backgroundColor || colorSchemeMap[colorScheme]}
       color={color}
       {...mergedStyles}
       borderRadius=".6rem"
+      {...props}
     >
       {label}
     </StyledButton>

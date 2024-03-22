@@ -47,6 +47,8 @@ const Login: FC = () => {
           onChange={handleChange}
           value={values.email}
           name="email"
+          outline="none"
+          focusedBorderColor="blue"
         />
         <Text.Span color="red">{errors.email && errors.email}</Text.Span>
         <PasswordInput
@@ -54,6 +56,8 @@ const Login: FC = () => {
           type="password"
           border="1px solid gray"
           name="password"
+          outline="none"
+          focusedBorderColor="blue"
           onChange={handleChange}
           value={values.password}
         />

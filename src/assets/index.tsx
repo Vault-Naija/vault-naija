@@ -7,6 +7,7 @@ import { UserProfileIcon } from './svg-icons/user-profile-icon'
 import { EyeCloseIcon } from './svg-icons/eye-close-icon'
 import { GoogleIcon } from './svg-icons/google-icon'
 import { FacebookIcon } from './svg-icons/facebook-icon'
+import { AvatarIcon } from './svg-icons/avatar-icon'
 
 export const Images = {
   icons: {
@@ -16,6 +17,7 @@ export const Images = {
     ArrowDown: ArrowDownIcon,
     Alert: AlertIcon,
     UserProfile: UserProfileIcon,
+    Avatar: AvatarIcon,
     EyeCloseIcon,
     GoogleIcon,
     FacebookIcon,

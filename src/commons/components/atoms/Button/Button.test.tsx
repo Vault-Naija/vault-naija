@@ -43,35 +43,45 @@ describe('Button', () => {
 
   describe('Button variant', () => {
     test('testing Button primary variant', () => {
-      customRender(<Button label="Checkout" size="large" variant="primary" />)
+      customRender(
+        <Button label="Checkout" size="large" colorScheme="primary" />
+      )
       const buttonElement = screen.getByRole('button')
 
       expect(buttonElement).toHaveStyle({ backgroundColor: 'blue' })
     })
 
     test('testing Button secondary variant', () => {
-      customRender(<Button label="Checkout" size="large" variant="secondary" />)
+      customRender(
+        <Button label="Checkout" size="large" colorScheme="secondary" />
+      )
       const buttonElement = screen.getByRole('button')
 
       expect(buttonElement).toHaveStyle({ backgroundColor: 'pink' })
     })
 
     test('testing Button tertiary variant', () => {
-      customRender(<Button label="Checkout" size="large" variant="tertiary" />)
+      customRender(
+        <Button label="Checkout" size="large" colorScheme="tertiary" />
+      )
       const buttonElement = screen.getByRole('button')
 
       expect(buttonElement).toHaveStyle({ backgroundColor: 'gray' })
     })
 
     test('testing Button success variant', () => {
-      customRender(<Button label="Checkout" size="large" variant="success" />)
+      customRender(
+        <Button label="Checkout" size="large" colorScheme="success" />
+      )
       const buttonElement = screen.getByRole('button')
 
       expect(buttonElement).toHaveStyle({ backgroundColor: 'green' })
     })
 
     test('testing Button danger variant', () => {
-      customRender(<Button label="Checkout" size="large" variant="danger" />)
+      customRender(
+        <Button label="Checkout" size="large" colorScheme="danger" />
+      )
       const buttonElement = screen.getByRole('button')
 
       expect(buttonElement).toHaveStyle({ backgroundColor: 'red' })

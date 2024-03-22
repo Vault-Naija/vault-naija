@@ -1,6 +1,7 @@
 export const theme = {
   colors: {
     dark: '#1C1C1C',
+    gray800: '#606060',
     gray600: '#505050',
     gray500: '#8B96A5',
     gray400: '#BDC4CD',
@@ -10,8 +11,12 @@ export const theme = {
     green: '#00B517',
     primary: '#0D6EFD',
     orange: '#FF9017',
+    orange100: '#FFE3E3',
     red: '#FA3434',
+    red600: '#EB001B',
+    cyan: '#55BDC3',
     green300: '#C3FFCB',
+    skyBlue: '#D1E7FF',
     orange300: '#FFE5BF',
     white: '#FFFFFF',
     baseColor: {

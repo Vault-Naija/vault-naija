@@ -19,6 +19,8 @@ const Register: FC = () => {
           borderRadius="6px"
           border="1px solid gray"
           type="email"
+          focusedBorderColor="blue"
+          outline="none"
         />
 
         <TextInput
@@ -26,17 +28,23 @@ const Register: FC = () => {
           borderRadius="6px"
           border="1px solid gray"
           type="text"
+          focusedBorderColor="blue"
+          outline="none"
         />
         <PasswordInput
           placeholder="Password"
           type="password"
           border="1px solid gray"
+          focusedBorderColor="blue"
+          outline="none"
         />
 
         <PasswordInput
           placeholder="Confirm Password"
           type="password"
           border="1px solid gray"
+          focusedBorderColor="blue"
+          outline="none"
         />
         <Button label="Register" size="normal" />
       </Form>

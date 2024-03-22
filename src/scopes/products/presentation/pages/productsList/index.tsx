@@ -1,5 +1,5 @@
 import { Text } from '@commons/styledComponents/basics'
-import { useProducts } from '../../../hooks/useProducts'
+import { useProducts } from '../../../application/useProducts'
 
 const ProductsList = () => {
   const { count, increment, decrement } = useProducts()

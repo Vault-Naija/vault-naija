@@ -9,9 +9,10 @@ interface SelectInputProps {
   items: ListItemProps[]
   values: ListItemProps[]
   onSelect: (selectedItems: ListItemProps[]) => void
+  width?: string
 }
 
-const SelectInput = ({ items, values, onSelect }: SelectInputProps) => {
+const SelectInput = ({ items, values, onSelect, width }: SelectInputProps) => {
   const { handleSelection, checkSelected, selectedItems } = useSelection({
     isMultiSelect: false,
     canDeselectInSingleSelect: false,
@@ -37,7 +38,7 @@ const SelectInput = ({ items, values, onSelect }: SelectInputProps) => {
   }, [isOpen])
 
   return (
-    <Box position="relative" ref={dropdownContainerRef}>
+    <Box position="relative" ref={dropdownContainerRef} width={width}>
       <Box
         padding=".9rem 1.6rem"
         border={`1px solid ${
